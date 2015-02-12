@@ -1,19 +1,118 @@
-<!doctype html>
+<!DOCTYPE>
 <html>
 <head>
-<title></title>
+<?php
+	function login(){
+	echo "<form action='login.php' method='post'>
+			<label for='username'> Username: <input type='text' name='username' size='15'> <br />
+			<label for='password'> Password: <input type='password' name='password' style='margin-left: 6px;' size='15'> <br />
+			<input type='submit'> <a href='forgotten'>Forgotten password?</a>
+		  </form>";}			
+?>
+				
+<link rel="stylesheet" type="text" href="style.css"/>
+<?php
+	function adminlogin(){
+	echo "<form action='adminlogin.php' method='post'>
+				<label for='username'> Username: <input type='text' name='username'> <label for='password'> Password: <input type='password' name='password' style='margin-left: 3px;'> <br />
+				<input type='submit'>
+			</form>";}
+
+?>
+
+
 </head>
 
 <body>
-<p>Click the button to display an alert box:</p>
-
-<button onclick="myFunction()">Try it</button>
-
-<script>
-function myFunction() {
-    alert("I am an alert box!");
-}
-</script>
-</form>
+<div id="container">
+	<div id="header">
+		<div id="logo">
+		<a href="index.php"><img src="images/logo.png"/></a>
+		</div>
+		
+		<div id="login">
+			<div id="userpass">
+				<?php
+					if(isset($_COOKIE["username"]))
+					{
+					echo "Welcome ". $_COOKIE["username"]. ".";
+					}
+					else
+					{
+					login();
+					}
+				?>
+				
+			</div>
+		
+		</div>	
+		
+		<div id="search">
+			<div id="searchbox">
+				Search: <input type="text" name="search"> <br />
+			</div>
+		</div>
+	</div>
+	
+	<div id="main">
+		<div id="top"></div>
+		<div id="nav">
+		<ul>
+			<li><a style="margin-right: 43px;" href="current.php">Current Films</a></li>
+			<li><a style="margin-right: 43px;" href="events.php">Events</a></li>
+			<li><a style="margin-right: 43px;" href="fotw.php">Film of the Week</a></li>
+			<li><a style="margin-right: 43px;" href="book.php">Book Tickets</a></li>
+			<li><a style="margin-right: 43px;" href="contact.php">Contact Us</a></li>
+			<li><a style="margin-right: 43px;" href="register.php">Register</a></li>
+		</ul>
+		</div>
+		<div id="bottom"></div>
+	
+		<div id="slideshow">
+			<div class="banner">
+				<ul>
+					<li><a href="current.php#apie"><img src="images/americanpie-slider.png"/></a></li>
+					<li><a href="current.php#tstory"><img src="images/toystory-slider.png"/></li>
+					<li><a href="current.php#theex"><img src="images/theexorcist-slider.png"/></li>
+					<li><a href="current.php#thor"><img src="images/thor-slider.png"/></li>
+					<li><a href="current.php#nemo"><img src="images/nemo-slider.jpg"/></li>
+					<li><a href="current.php#nap"><img src="images/napoleon-slider.jpg"/></li>
+				</ul>
+			</div>
+		</div>
+		
+	
+		
+	
+		<div id="fotw">
+			<div id="fotwf"><img src="images/napoleon-current.jpg" style="height: 140px; width: 253px;"></div> <!--replace with image-->
+			<p>Click <a href="fotw.php">here</a> to see this week's top film.</p>
+		</div>
+		
+		<div id="book">
+			<div id="bookscreen"><img src="images/nemo-current.jpg" style="height: 140px; width: 253px;"></div> <!--replace with image-->
+			<p>Click <a href="book.php">here</a> to book tickets for the film you would like to see.</p>
+		</div>
+		
+		<div id="soon">
+			<div id="soonfilm"><img src="images/thor-current.png" style="height: 140px; width: 253px;"></div> <!--replace with image-->
+			<p>Click <a href="events.php">here</a> to see the events that are taking place.</p>
+		</div>
+		
+		<div id="adminlogin">
+				<?php
+					if(isset($_COOKIE["username"]))
+					{
+					}
+					else
+					{
+					adminlogin();
+					}
+				?>
+		
+			
+		</div>	
+    </div>
+</div>
 </body>
 </html>
